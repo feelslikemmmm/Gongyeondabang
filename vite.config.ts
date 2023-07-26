@@ -7,9 +7,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/period': {
-        target: 'http://www.culture.go.kr',
+        target:
+          'http://www.culture.go.kr/openapi/rest/publicperformancedisplays',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/period/, ''),
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
